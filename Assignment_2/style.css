@@ -1,0 +1,190 @@
+/* style.css */
+body {
+  margin: 0;
+  font-family: 'Inria Serif', serif;
+  min-height: 100vh;
+  overflow: hidden; 
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  margin-right: 6rem;
+  margin-left: 4rem;
+}
+
+.nav-link {
+  color: #000;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #000;
+  bottom: -5px;
+  left: 0;
+  animation: underlineSlide 0.5s ease;
+}
+
+.hero-section {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 120px;
+  background: url('assets/home/wallpaper.png') center/cover;
+}
+
+.hero-content {
+  position: absolute;
+  top: 40%;
+  left: 50px;
+  transform: translateY(-30%);
+  animation: textSlide 1s ease-out;
+}
+
+.hero-title {
+  font-size: 4.5rem;
+  color: #000;
+  line-height: 1.2;
+  margin: 0;
+  -webkit-text-stroke: 2px white;
+  text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+  animation: textGlow 2s infinite alternate;
+}
+
+.hero-subtitle {
+  font-size: 2rem;
+  color: #000;
+  margin: 20px 0 0 0;
+  -webkit-text-stroke: 1px white;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+}
+
+.auth-buttons {
+  position: absolute;
+  right: 25%;
+  top: 45%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: buttonFloat 3s ease-in-out infinite;
+}
+
+.sign-in-button,
+.signup-button {
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.sign-in-button {
+  background: transparent;
+  border: 2px solid #b1f9a4;
+  color: #b1f9a4;
+}
+
+.signup-button {
+  background: #b1f9a4;
+  color: #fff;
+}
+
+.sign-in-button:hover,
+.signup-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Animations */
+@keyframes textSlide {
+  from {
+    opacity: 0;
+    transform: translateY(100px) translateY(-30%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-30%);
+  }
+}
+
+@keyframes textGlow {
+  from {
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+  }
+  to {
+    text-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+  }
+}
+
+@keyframes buttonFloat {
+  0%, 100% {
+    transform: translateY(-60%);
+  }
+  50% {
+    transform: translateY(-55%);
+  }
+}
+
+@keyframes underlineSlide {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+  
+  .auth-buttons {
+    right: 20px;
+  }
+  
+  .sign-in-button,
+  .signup-button {
+    padding: 0.75rem 1.5rem;
+  }
+}
